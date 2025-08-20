@@ -1,7 +1,7 @@
 from bookshelf.models import Book
 
 # Retrieve all books
-books = Book.objects.all()
+books = Book.objects.get()
 for b in books:
     print(b.title, b.author, b.publication_year)
 
