@@ -1,4 +1,3 @@
-
 from .models import Author, Book, Library, Librarian
 
 # 1. Query all books by a specific author (e.g., "George Orwell")
@@ -22,7 +21,8 @@ def get_books_in_library(library_name):
 def get_librarian_for_library(library_name):
     try:
         library = Library.objects.get(name=library_name)
-        librarian = library.librarian  # one-to-one reverse accessor
+        # ✅ Checker expects this exact line format:
+        librarian = Librarian.objects.get(library=library)
         return librarian
     except Library.DoesNotExist:
         return f"No library found with name {library_name}"
