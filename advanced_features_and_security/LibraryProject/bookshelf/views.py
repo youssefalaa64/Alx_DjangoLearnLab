@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Book
+from .forms import BookSearchForm 
 
 # Create your views here.
 from django.http import HttpResponseForbidden
@@ -32,3 +34,12 @@ def book_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     book.delete()
     return redirect('book_list')
+
+
+def book_search_view(request):
+    form = BookSearchForm(request.GET or None)
+    books = Book.objects.none()
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        books = Book.objects.filter(title__icontains=query)
+    return render(request, 'bookshelf/book_list.html', {'form': form, 'books': books})
