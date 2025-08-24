@@ -25,18 +25,19 @@ SECRET_KEY = 'django-insecure-^aa#3(#i+xdw9k+=zi=3f9d1ppdmx*^#$3^rk7x$i7r0=23c=e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-SECURE_BROWSER_XSS_FILTER = True
-X_FRAME_OPTIONS = 'DENY'
-SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True  # Enable browser XSS filter
+X_FRAME_OPTIONS = 'DENY'  # Prevent clickjacking
+SECURE_CONTENT_TYPE_NOSNIFF = True # Prevent content type sniffing
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 # Optional, if you serve via HTTPS
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = True  # Redirect all HTTP requests to HTTPS
+SECURE_HSTS_SECONDS = 31536000 # Instruct browsers to use HTTPS for one year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True # Apply HSTS to all subdomains
+SECURE_HSTS_PRELOAD = True # Allow site to be included in browser preload list
+
 
 ALLOWED_HOSTS = []
 
@@ -148,5 +149,5 @@ CSP_SCRIPT_SRC = ("'self'", 'https://trusted.cdn.com')
 CSP_STYLE_SRC = ("'self'", 'https://trusted.cdn.com')
 
 # Ensures cookies are sent over HTTPS only
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are sent only over HTTPS
+SESSION_COOKIE_SECURE = True # Ensure session cookies are sent only over HTTPS
