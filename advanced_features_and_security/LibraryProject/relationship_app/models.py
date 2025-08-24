@@ -87,3 +87,4 @@ class CustomUser(AbstractUser):
         help_text='Specific permissions for this user.',
         related_query_name='user',
     )
+    pass
