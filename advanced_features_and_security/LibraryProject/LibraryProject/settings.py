@@ -151,3 +151,6 @@ CSP_STYLE_SRC = ("'self'", 'https://trusted.cdn.com')
 # Ensures cookies are sent over HTTPS only
 CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are sent only over HTTPS
 SESSION_COOKIE_SECURE = True # Ensure session cookies are sent only over HTTPS
+
+# Trust the X-Forwarded-Proto header set by your proxy to determine HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
