@@ -23,3 +23,4 @@ class CustomUserAdmin(UserAdmin):
     )
     list_display = ["username", "email", "first_name", "last_name", "is_staff", "date_of_birth"]
     search_fields = ["username", "email"]
+admin.site.register(CustomUser, CustomUserAdmin)
